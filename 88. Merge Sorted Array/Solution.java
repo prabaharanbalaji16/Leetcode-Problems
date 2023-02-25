@@ -10,7 +10,6 @@ class Solution {
             nums1[size--] = (nums1[num1]>nums2[num2]) ?
                             (nums1[num1--]) : (nums2[num2--]);
         }
-        
         while(num2>=0)
         {
             nums1[size--] = nums2[num2--];
