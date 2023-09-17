@@ -1,24 +1,26 @@
-class Solution {
-    public int maxArea(int[] height) {
-        int n = height.length,i=0,j=n-1,water=0,ans=0;
-        while(i<j)
-        {
-            // Here we are using area of reactangle
+// Here we are using area of reactangle
             // We are using min height bcoz if we you max for height
             // it might lead to water overflow.
-            if(height[i]<height[j])
-            {
-                water = (j-i)*height[i];
+class Solution {
+    public int maxArea(int[] height) {
+        int i=0;
+        int j= height.length-1;
+        int maxarea = 0;
+        while(i<j)
+        {
+            int h;
+            if(height[i]<height[j]){
+                h= height[i];
                 i++;
-            }
+            }    
             else
             {
-                water = (j-i)*height[j];
-                j--;
+               h=height[j];
+               j--; 
             }
-            if(ans<water)
-                ans = water;
+            if(maxarea<(h*(j-i+1)))
+                maxarea = h*(j-i+1);
         }
-        return ans;
+        return maxarea;
     }
 }
