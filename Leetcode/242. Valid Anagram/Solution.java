@@ -21,7 +21,6 @@ class Solution {
                 return false;
             else 
                 map1.put(c,map1.get(c)-1);
-
         }
         return true;
     }
