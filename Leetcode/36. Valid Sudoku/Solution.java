@@ -1,5 +1,4 @@
 import java.util.HashMap;
-
 class Solution {
     public boolean isValidSudoku(char[][] board) {
         int n = board.length;
