@@ -1,6 +1,6 @@
 class Solution {
     public int romanToInt(String s) {
-        Map<Character,Integer> map = new HashMap<Character,Integer>();
+        Map<Character,Integer> map = new HashMap<>();
         map.put('I',1);
         map.put('V',5);
         map.put('X',10);
@@ -8,21 +8,24 @@ class Solution {
         map.put('C',100);
         map.put('D',500);
         map.put('M',1000);
-        
-        var words = s.toCharArray();
-        int result = 0;
-        for(int i=0;i<s.length();i++)
+
+        char[] ch = s.toCharArray();
+
+        int i=0;
+        int sum=0;
+        while(i<ch.length)
         {
-            int curr = map.get(words[i]);
-            if(i+1<s.length() && curr < map.get(words[i+1]) )
+            int curr = map.get(ch[i]);
+            if(i+1<ch.length && curr < map.get(ch[i+1]))
             {
-                result = result-curr;
+                sum-=curr;
             }
             else
             {
-                result = result+curr;
+                sum+=curr;
             }
+            i++;
         }
-        return result;
+        return sum;
     }
 }
