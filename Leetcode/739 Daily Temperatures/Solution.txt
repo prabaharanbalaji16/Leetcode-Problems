@@ -1,0 +1,23 @@
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+        int n = temperatures.length;
+        int[] arr = new int[n];
+        int maxTemp = 30;
+        for(int i=n-1;i>=0;i--)
+        {
+            int currTemp = temperatures[i];
+            if(maxTemp<=currTemp)
+            {
+                maxTemp = currTemp;
+                continue;
+            }
+            int shift = 1;
+            while(temperatures[shift+i]<=currTemp)
+            {
+                shift += arr[i+shift];
+            }
+            arr[i] = shift;
+        }
+        return arr;
+    }
+}
